@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                template="mainTemplate.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                >
+    <ui:define name="top">
+        <p>${msg["main.page"]}/${msg["menu.accounts.createadmin"]}</p>
+    </ui:define>
+
+    <ui:define name="left">
+        <ui:include src="menu.xhtml" />
+    </ui:define>
+    <ui:define name="content">
+        <h:form id="createAdministratorForm">
+            <h:panelGrid columns="3">
+
+
+                <h:outputLabel value="#{msg['account.login']} *" />
+                <h:inputText value="#{createAdministratorPageBean.account.login}"  id="login" maxlength="20" required="true" validatorMessage="#{msg['account.validator.login']}">
+                    <f:validateLength minimum="6" maximum="20"  ></f:validateLength>
+                    <f:validateRegex pattern="[a-zA-Z0-9]{6,20}" />
+                </h:inputText>
+                <br />
+                <h:outputLabel value="#{msg['account.password']} *" />
+                <h:inputSecret value="#{createAdministratorPageBean.account.password}" required="true" maxlength="20" size="20" validatorMessage="#{msg['account.validator.password']}">
+                    <f:validateLength minimum="8" maximum="20"  ></f:validateLength>
+                    <f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#!$%]).{8,20})"/>
+                </h:inputSecret>
+                <br />
+                <h:outputLabel value="#{msg['account.passwordRepeat']} *" />
+                <h:inputSecret value="#{createAdministratorPageBean.repeatPassword}" required="true" maxlength="20" size="20" validatorMessage="#{msg['account.validator.password']}">
+                    <f:validateLength minimum="8" maximum="20"  ></f:validateLength>
+                    <f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#!$%]).{8,20})"/>
+                </h:inputSecret>
+                <br />
+                <h:outputLabel value="#{msg['account.name']} *" />
+                <h:inputText value="#{createAdministratorPageBean.account.name}" required="true" maxlength="30" size="20" validatorMessage="#{msg['account.validator.name']}">
+                    <f:validateRegex pattern="^[A-ZĄĆĘŁŃÓŚŹŻ]{1}[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\ \'\-]+"/>
+
+                </h:inputText>
+                <br />
+                <h:outputLabel value="#{msg['account.surname']} *" />
+
+                <h:inputText value="#{createAdministratorPageBean.account.surname}" required="true" maxlength="50" size="20" validatorMessage="#{msg['account.validator.surname']}">
+                    <f:validateRegex pattern="^[A-ZĄĆĘŁŃÓŚŹŻ]{1}[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\ \'\-]+"/>
+
+                </h:inputText>
+                <br />
+                <h:outputLabel value="#{msg['account.email']} *" />
+                <h:inputText value="#{createAdministratorPageBean.account.email}" required="true" maxlength="100" size="20" validatorMessage="#{msg['account.validator.email']}">
+                    <f:validateRegex pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})" />
+
+                </h:inputText>
+                <br />
+                <h:outputLabel value="#{msg['account.phone']}" />
+                <h:inputText value="#{createAdministratorPageBean.account.phone}" required="false" id="phoneNumber" maxlength="9"  validatorMessage="#{msg['account.validator.phoneNumber']}">
+                    <f:validateRegex pattern="[0-9]{0,9}" />
+
+                </h:inputText>
+                <br />
+                <h:outputLabel value="#{msg['account.alarmNumber']} *" />
+                <h:inputText value="#{createAdministratorPageBean.account.alarmNumber}" required="true" id="alarmNumber" maxlength="9"  validatorMessage="#{msg['account.validator.alarmNumber']}">
+                    <f:validateRegex pattern="[0-9]{9,9}" />
+
+                </h:inputText>
+                <br />
+            </h:panelGrid>
+
+            <h:commandButton value="#{msg['action.create']}" action="#{createAdministratorPageBean.create()}"/>
+            <h:commandButton value="#{msg['action.cancel']}" action="cancelAction" immediate="true"/>
+            <h:messages />
+
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+

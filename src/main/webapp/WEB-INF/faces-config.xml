@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<faces-config version="2.3"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd">
+     <application>
+        <locale-config>
+            <default-locale>pl</default-locale>
+            <supported-locale>pl</supported-locale>
+            <supported-locale>en</supported-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>i18n.messages</base-name>
+            <var>msg</var>
+        </resource-bundle>
+        <message-bundle>
+            i18n.jsf_messages
+        </message-bundle>
+        <resource-bundle>
+            <base-name>/Bundle</base-name>
+            <var>bundle</var>
+        </resource-bundle>
+    </application>    
+    
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>createNeedSuccess</from-outcome>
+            <to-view-id>/listRequestedNeed_Applicant.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+          <navigation-case>
+            <from-outcome>addNewCategorySuccess</from-outcome>
+            <to-view-id>/index2.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        
+        
+        
+        <navigation-case>
+            <from-outcome>confirmRegister</from-outcome>
+            <to-view-id>/registerApplicantConfirm.xhtml</to-view-id>
+            <redirect />
+        </navigation-case> 
+        
+                <navigation-case>
+            <from-outcome>index2</from-outcome>
+            <to-view-id>/index2.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>  
+        
+        
+         <navigation-case>
+            <from-outcome>loginError</from-outcome>
+            <to-view-id>/loginError.xhtml</to-view-id>
+            <redirect />
+                    </navigation-case> 
+    
+ 
+<navigation-case>
+            <from-outcome>loginSuccess</from-outcome>
+            <to-view-id>/loginSuccess.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>  
+        
+        <navigation-case>
+            <from-outcome>cancelAction</from-outcome>
+            <to-view-id>/index2.xhtml</to-view-id>
+            <redirect />
+        </navigation-case> 
+          <navigation-case>
+            <from-outcome>editAccount</from-outcome>
+            <to-view-id>/editAccount.xhtml</to-view-id>
+            <redirect />
+        </navigation-case> 
+        
+                 <navigation-case>
+            <from-outcome>confirmRequestedNeed</from-outcome>
+            <to-view-id>/confirmRequestedNeed.xhtml</to-view-id>
+            <redirect />
+        </navigation-case> 
+        
+        
+        <navigation-case>
+            <from-outcome>rejectRequestedNeed</from-outcome>
+            <to-view-id>/rejectRequestedNeed.xhtml</to-view-id>
+            <redirect />
+        </navigation-case> 
+        
+                         <navigation-case>
+            <from-outcome>rejectRequestedNeedSuccess</from-outcome>
+            <to-view-id>/listRequestedNeed_Employee.xhtml</to-view-id>
+            <redirect />
+        </navigation-case> 
+        
+        <navigation-case>
+            <from-outcome>confirmRequestedNeedSuccess</from-outcome>
+            <to-view-id>/listRequestedNeed_Employee.xhtml</to-view-id>
+            <redirect />
+        </navigation-case> 
+
+
+         <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/success.xhtml</to-view-id>
+            <redirect />
+        </navigation-case> 
+        <navigation-case>
+            <from-outcome>main</from-outcome>
+            <to-view-id>/index2.xhtml</to-view-id>
+            <redirect />
+        </navigation-case> 
+         <navigation-case>
+            <from-outcome>editRequestedNeed</from-outcome>
+            <to-view-id>/editRequestedNeed.xhtml</to-view-id>
+            <redirect />
+        </navigation-case> 
+        
+        <navigation-case>
+            <from-outcome>editRequestedNeedSuccess</from-outcome>
+            <to-view-id>/listRequestedNeed_Applicant.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        
+                <navigation-case>
+            <from-outcome>deleteRequestedNeedSuccess</from-outcome>
+            <to-view-id>/listRequestedNeed_Applicant.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        
+                        <navigation-case>
+            <from-outcome>listAccount</from-outcome>
+            <to-view-id>/listAccount.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        
+                <navigation-case>
+            <from-outcome>resetPassword2</from-outcome>
+            <to-view-id>/resetPassword2.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>resetPassword3</from-outcome>
+            <to-view-id>/resetPassword3.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        
+         <navigation-case>
+            <from-outcome>resetPassword</from-outcome>
+            <to-view-id>/resetPassword.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+
+
+    </navigation-rule>
+</faces-config>

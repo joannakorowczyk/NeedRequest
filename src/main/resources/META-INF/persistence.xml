@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+  <!-- Define Persistence Unit -->
+  <persistence-unit name="NeedRequestPU" transaction-type="JTA">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>java:app/jdbc/NeedRequestDS</jta-data-source>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <shared-cache-mode>NONE</shared-cache-mode>
+
+    <validation-mode>NONE</validation-mode>
+    <properties>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="javax.persistence.sql-load-script-source" value="init.sql"/>
+      <property name="eclipselink.logging.level" value="FINE"/>
+      <property name="eclipselink.canonicalmodel.subpackage" value="NeedRequestPU"/>
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>All functionalities</title>
+    </h:head>
+    <h:body>
+        <h:form>
+
+            <h:commandLink value="Register a new need" action="registerNeed.xhtml" />
+            <br/>
+            
+                        <h:commandLink value="List all requested needs (Employee view)" action="listRequestedNeed_Employee.xhtml" />
+            <br/>
+                                    <h:commandLink value="List all requested needs (Applicant view)" action="listRequestedNeed_Applicant.xhtml" />
+            <br/>
+            <h:commandLink value="Register Applicant" action="registerApplicant.xhtml" />
+
+            <br/>
+            <h:commandLink value="Create Employee" action="createEmployee.xhtml" />
+                    <br/>
+            <h:commandLink value="Create Administrator" action="createAdministrator.xhtml" />
+                  <br/>
+                  
+                  <h:commandLink value="Create Applicant" action="createApplicant.xhtml" />
+                  <br/>
+                        
+            <h:commandLink value="Log in" action="login.xhtml" />
+            
+             <br/>
+                        
+            <h:commandLink value="List accounts" action="listAccount.xhtml" />
+
+               <br/>
+                        
+            <h:commandLink value="List accounts2" action="listAccount2.xhtml" />
+               <br/>
+            <h:commandLink value="Details of my account" action="myAccountDetails.xhtml" />
+               <br/>
+            <h:commandLink value="Change my password" action="changeMyPassword.xhtml" />
+                             <br/>
+            <h:commandLink value="Add new category name" action="addNewCategoryName.xhtml" />
+                                           <br/>
+            <h:commandLink value="List all category need" action="listAllCategory.xhtml" />
+                         <br/>  
+            <h:commandLink action="#{contextUtils.invalidateSession()}" value="Log out" />
+<br/>
+            <h:commandLink value="Edit Account" action="editAccount.xhtml" />
+
+        </h:form>    
+    </h:body>
+</html>
+

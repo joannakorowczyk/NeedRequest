@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                template="mainTemplate.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                >
+    <ui:define name="top">
+        <p>${msg["main.page"]}/${msg["page.confirmConfirmOrder"]}</p>
+    </ui:define>
+
+    <ui:define name="left">
+        <ui:include src="menu.xhtml" />
+    </ui:define>
+    <ui:define name="content">
+        <h:form id="confirmRequestedNeedForm">
+
+            <h:panelGrid columns="2">
+
+                <h:outputLabel value="${msg['order.item.quantity']}  " for="requestedAmount">
+                    <h:outputText id="requestedAmount" value="#{confirmRequestedNeedPageBean.requestedNeed.requestedAmount}"/>
+
+                </h:outputLabel>
+<br/>
+                <br/>
+                <h:outputLabel value="${msg['product.name']} "/>
+                <h:outputText id="category" value="#{confirmRequestedNeedPageBean.requestedNeed.categoryName}"/>
+
+            </h:panelGrid>
+
+
+            <h:commandButton value="#{msg['action.confirmOrder']}" action="#{confirmRequestedNeedPageBean.confirmRequestedNeed()}"/>
+            <h:commandButton value="#{msg['action.cancel']}" action="cancelAction" immediate="true"/>
+            <h:messages />
+
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                template="mainTemplate.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <ui:define name="top">
+        <p>${msg["main.page"]}/${msg["menu.accounts.edit"]}</p>
+    </ui:define>
+
+    <ui:define name="left">
+        <ui:include src="menu.xhtml" />
+    </ui:define>
+    <ui:define name="content">
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="#{msg['account.login']}" for="login" />
+                <h:inputText disabled="true" id="login" value="#{editAccountPageBean.account.login}" title="#{msg['account.login']}" maxlength="20" required="true" validatorMessage="#{msg['account.validator.login']}" >
+                     <f:validateLength minimum="6" maximum="20"  ></f:validateLength>
+                    <f:validateRegex pattern="[a-zA-Z0-9]{6,20}" />
+                                    </h:inputText>
+
+                <h:messages for="login" />
+
+                <h:outputLabel value="#{msg['account.name']} *" for="name" />
+                <h:inputText id="name" value="#{editAccountPageBean.account.name}" title="#{msg['account.name']} *" required="true" maxlength="30" size="20" validatorMessage="#{msg['account.validator.name']}">
+                                    <f:validateRegex pattern="^[A-ZĄĆĘŁŃÓŚŹŻ]{1}[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\ \'\-]+"/>
+
+                </h:inputText>
+                <h:messages for="name" />
+
+                <h:outputLabel value="#{msg['account.surname']} *" for="surname" />
+                <h:inputText id="surname" value="#{editAccountPageBean.account.surname}" title="#{msg['account.surname']} *" required="true" maxlength="50" size="20" validatorMessage="#{msg['account.validator.surname']}"> >
+                                    <f:validateRegex pattern="^[A-ZĄĆĘŁŃÓŚŹŻ]{1}[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\ \'\-]+"/>
+
+                </h:inputText>
+                <h:messages for="surname" />
+
+                <h:outputLabel value="#{msg['account.email']} *" for="email" />
+                <h:inputText id="email" value="#{editAccountPageBean.account.email}" title="#{msg['account.email']} *" required="true" maxlength="100" size="20" validatorMessage="#{msg['account.validator.email']}" >
+                                    <f:validateRegex pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})" />
+
+                </h:inputText>
+                <h:messages for="email" />
+
+                <h:outputLabel value="#{msg['account.phone']}" for="phone" />
+                <h:inputText id="phone" value="#{editAccountPageBean.account.phone}" title="#{msg['account.phone']}" required="false" maxlength="9"  validatorMessage="#{msg['account.validator.phoneNumber']}" >
+                                    <f:validateRegex pattern="[0-9]{0,9}" />
+
+                </h:inputText>
+                <h:messages for="phone" />
+
+            </h:panelGrid>
+            <br />
+
+            <h:commandButton value="#{msg['action.account.edit']}" action="#{editAccountPageBean.saveAccount()}"/>
+            <h:commandButton value="#{msg['action.cancel']}" action="cancelAction" immediate="true"/>
+<h:messages/>
+
+
+    </h:form>
+    </ui:define>
+
+</ui:composition>
+

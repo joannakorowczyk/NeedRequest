@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" 
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+     <context-param>
+        <param-name>resourceBundle.path</param-name>
+        <param-value>i18n.messages</param-value>
+        
+    
+    
+    </context-param>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/faces/error/error403.xhtml</location>   
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/faces/error/error404.xhtml</location>   
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/faces/error/error.xhtml</location>   
+    </error-page>
+    <error-page>
+        <!-- obsługa błędów systemowych zgłaszanych przez kontener -->
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/faces/error/error.xhtml</location>
+    </error-page>
+    <env-entry>
+        <env-entry-name>txRetryLimit</env-entry-name>
+        <env-entry-type>java.lang.Integer</env-entry-type>
+        <env-entry-value>3</env-entry-value> 
+    </env-entry>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+     <welcome-file-list>
+        <welcome-file>faces/index2.xhtml</welcome-file>
+    </welcome-file-list>
+    
+        <security-role>
+        <description/>
+        <role-name>Employee</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>Applicant</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>Administrator</role-name>
+    </security-role>
+<!--
+
+   <security-constraint>
+        <display-name>StronyZalogowanegoUzytkownika</display-name>
+        <web-resource-collection>
+            <web-resource-name>StronyZalogowanegoUzytkownika</web-resource-name>
+            <description/>
+            <url-pattern>/faces/myAccountDetails.xhtml</url-pattern>
+            <url-pattern>/faces/changeMyPassword.xhtml</url-pattern>
+                        <url-pattern>/faces/editAccount.xhtml</url-pattern>
+
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>Employee</role-name>
+            <role-name>Administrator</role-name>
+            <role-name>Applicant</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+
+    <security-constraint>
+        <display-name>StronyWnioskodawcy</display-name>
+        <web-resource-collection>
+            <web-resource-name>StronyWnioskodawcy</web-resource-name>
+            <description/>
+          <url-pattern>/faces/listRequestedNeed_Applicant.xhtml</url-pattern>
+          <url-pattern>/faces/registerNeed.xhtml</url-pattern>
+         <url-pattern>/faces/changeMyPassword.xhtml</url-pattern>
+
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>Applicant</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <display-name>StronyPracownika</display-name>
+        <web-resource-collection>
+            <web-resource-name>StronyPracownika</web-resource-name>
+            <description/>
+            <url-pattern>/faces/listRequestedNeed_Employee.xhtml</url-pattern>
+            <url-pattern>/faces/confirmRequestedNeed.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>Employee</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    <security-constraint>
+        <display-name>StronyAdministratora</display-name>
+        <web-resource-collection>
+            <web-resource-name>StronyAdministratora</web-resource-name>
+            <description/>
+            <url-pattern>/faces/konto/edytujKonto.xhtml</url-pattern>
+            <url-pattern>/faces/konto/listaKont.xhtml</url-pattern>
+            <url-pattern>/faces/konto/utworzAdministratora.xhtml</url-pattern>
+            <url-pattern>/faces/konto/utworzPracownika.xhtml</url-pattern>
+            <url-pattern>/faces/konto/utworzKlienta.xhtml</url-pattern>
+            <url-pattern>/faces/konto/zmienHasloKonta.xhtml</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>Administrator</role-name>
+        </auth-constraint>
+    </security-constraint>-->
+        <mime-mapping>
+        <extension>woff</extension>
+        <mime-type>application/font-woff</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>ttf</extension>
+        <mime-type>application/font/ttf</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>eot</extension>
+        <mime-type>application/vnd.ms-fontobject</mime-type>
+    </mime-mapping>
+</web-app>

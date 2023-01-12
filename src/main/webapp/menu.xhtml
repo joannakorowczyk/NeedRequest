@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <h:form id="menu">
+        <ul>
+            <li>
+                <h:link outcome="main" > ${msg["main.page"]}</h:link></li>
+            <f:subview id="menuAccountNotLoggedIn" rendered="#{empty request.remoteUser}"                     >
+     <li><h:link outcome="registerApplicant" >${msg["menu.register"]}</h:link></li>
+                <li><h:link outcome="login" >${msg["menu.authenticate"]}</h:link></li>
+                                <li><h:link outcome="resetPassword" >${msg["menu.resetPassword"]}</h:link></li>
+
+        </f:subview>
+            
+            <f:subview id="menuAccountLoggedIn" rendered="#{not empty request.remoteUser}">
+                <li><h:link outcome="changeMyPassword_1">${msg["menu.accounts.changePassword"]} </h:link></li>
+                <li><h:link outcome="myAccountDetails" > ${msg["menu.accounts.details"]}</h:link></li>
+
+                <li><h:commandLink action="#{contextUtils.invalidateSession()}" value="${msg['menu.closeSession']}" /></li>
+
+            </f:subview>
+
+        <f:subview id="account" rendered="#{request.isUserInRole('Administrator')}">
+            <li>${msg["menu.accounts"]}</li>
+            <ul>
+                <li><h:link outcome="listAccount" >${msg["menu.accounts.list"]}</h:link></li>
+                <li><h:link outcome="createApplicant" >${msg["menu.accounts.createapplicant"]}</h:link></li>
+                <li><h:link outcome="createEmployee" >${msg["menu.accounts.createemployee"]}</h:link></li>
+                <li><h:link outcome="createAdministrator" >${msg["menu.accounts.createadmin"]}</h:link></li>
+            </ul>
+        </f:subview>
+        <f:subview id="RequestedNeed_Employee" rendered="#{request.isUserInRole('Employee')}">
+            <li>${msg["menu.orders"]}</li>
+            <ul>
+                                <li><h:link outcome="listAccount_Employee" >${msg["menu.accounts.list"]}</h:link></li>
+
+                <li><h:link outcome="listRequestedNeed_Employee" >${msg["menu.orders.list"]}</h:link></li>
+                            <li><h:link outcome="listAllCategory" >${msg["menu.products.list"]}</h:link></li>
+            </ul>
+            
+        </f:subview>
+               <f:subview id="RequestedNeed_Applicant" rendered="#{request.isUserInRole('Applicant')}">
+            <li>${msg["menu.orders"]}</li>
+            <ul>
+                <li><h:link outcome="listRequestedNeed_Applicant" >${msg["menu.applicant.orders.list"]}</h:link></li>
+                <li><h:link outcome="registerNeed" >${msg["menu.request.create"]}</h:link></li>
+            </ul>
+            <li>${msg["menu.products"]}</li>
+            <ul>
+                <li><h:link outcome="listAllCategory" >${msg["menu.products.list"]}</h:link></li>
+            </ul>
+        </f:subview>
+        </ul>
+    </h:form>
+</ui:composition>
